@@ -1,5 +1,7 @@
 vendor_name = ModelSim
-source_file = 1, C:/Users/ulab/Documents/HackPotsdam/SegDisplayDriver.vhd
+source_file = 1, C:/Users/ulab/Documents/HackPotsdam/SevSegDisplay.vhd
+source_file = 1, C:/Users/ulab/Documents/HackPotsdam/RegisterUnit.vhd
+source_file = 1, C:/Users/ulab/Documents/HackPotsdam/Register32.vhd
 source_file = 1, C:/Users/ulab/Documents/HackPotsdam/MUX.vhd
 source_file = 1, C:/Users/ulab/Documents/HackPotsdam/ALU_Control.vhd
 source_file = 1, C:/Users/ulab/Documents/HackPotsdam/DE2_Wrapper_UnMod.vhd

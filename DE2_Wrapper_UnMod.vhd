@@ -142,6 +142,59 @@ component SignExtend is
 );
 end component;
 
+component Control is
+ Port(
+	Op       : in  std_logic_vector(5 downto 0);
+	RegDes   : out std_logic;
+	ALU_Src  : out std_logic;
+	MemtoReg : out std_logic;
+	RegWrite : out std_logic;
+	MemRead  : out std_logic;
+	Branch   : out std_logic;
+	ALUOp1   : out std_logic;
+	ALUOp2   : out std_logic
+);
+
+end component;
+
+component Register32 IS 
+PORT(
+    d   : IN STD_LOGIC_VECTOR(31 DOWNTO 0); -- input
+    ld  : IN STD_LOGIC; -- load/enable.
+    clr : IN STD_LOGIC; -- async. clear.
+    clk : IN STD_LOGIC; -- clock.
+    q   : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) -- output
+);
+END component;
+
+
+
+
+component TEST1 is
+port (
+		  clk 		: in std_logic;
+        bcd 		: in std_logic_vector(3 downto 0);  --BCD input
+        segment7  : out std_logic_vector(6 downto 0)  -- 7 bit decoded output.
+	   );
+end component;
+
+
+component ShiftLeft2 is
+   Port(
+	I:	in  std_logic_vector(15 downto 0);
+	O:	out std_logic_vector(31 downto 0)
+);
+end component;
+
+component SwitchInput is
+Port(
+	sw0 : in std_logic;
+	sw1 : in std_logic;
+	sw2 : in std_logic;
+	sw3 : in std_logic;
+	O	 :	out std_logic_vector(3 downto 0)
+);
+end component;
 
 component ALU is
   PORT (

@@ -1,5 +1,5 @@
--- Code from http://stackoverflow.com/questions/21581556/register-design-in-vhdl
--- Written by Bill Lynch
+LIBRARY ieee;
+   USE ieee.std_logic_1164.all;
 
 ENTITY RegisterUnit IS PORT(
 	slowClk		: in std_logic;
@@ -32,14 +32,14 @@ Begin
 Process(WriteData, WriteEnable)
 	BEGIN
 		case WriteData is
-			when "000" => WriteEnable(0) <= "00000001";
-			when "001" => WriteEnable(1) <= "00000010";
-			when "010" => WriteEnable(2) <= "00000100";
-			when "011" => WriteEnable(3) <= "00001000";
-			when "100" => WriteEnable(4) <= "00010000";
-			when "101" => WriteEnable(5) <= "00100000";
-			when "110" => WriteEnable(6) <= "01000000";
-			when "111" => WriteEnable(7) <= "10000000";
+			when "000" => WriteEnable <= "00000001";
+			when "001" => WriteEnable <= "00000010";
+			when "010" => WriteEnable <= "00000100";
+			when "011" => WriteEnable <= "00001000";
+			when "100" => WriteEnable <= "00010000";
+			when "101" => WriteEnable <= "00100000";
+			when "110" => WriteEnable <= "01000000";
+			when "111" => WriteEnable <= "10000000";
 	end case;
 End Process;
 
@@ -48,15 +48,15 @@ End Process;
 		REGX : Register32 port map(
 			d => WriteData,
 			ld => WriteEnable(I),
-			clr => "0",
-			slowClk => clk,
+			clr => '0',
+			clk => slowClk,
 			q => RegCopy((I + 1) * 8 downto (I + 1) * 8 - 8)
 		);
 	end generate GEN_REG;
 
 
 
-Process(ReadAddr1, ReadData1)
+Process(ReadAddr1)
 	Begin
 	case ReadAddr1 is
 		when "000" => ReadData1 <= RegCopy(1 * 8 downto 1 * 8 - 8);
@@ -70,7 +70,7 @@ Process(ReadAddr1, ReadData1)
 	end case;
 End Process;
 
-Process(ReadAddr2, ReadData2)
+Process(ReadAddr2)
 	Begin
 	 case ReadAddr2 is
 	 	when "000" => ReadData2 <= RegCopy(1 * 8 downto 1 * 8 - 8);
