@@ -35,7 +35,7 @@ PROCESS(A,B, FunctField)
             Overflow <= '0';
           WHEN "000010" =>
             Result <= A + B;--ADD
-            Overflow <= (((A(31) AND B(31)) AND (NOT R(31)))OR(((NOT A(31)) AND (NOT B(31))) AND R(31)));
+            Overflow <= (((A(3) AND B(3)) AND (NOT R(3)))OR(((NOT A(3)) AND (NOT B(3))) AND R(3)));
           WHEN "000110" =>
             Result <= A - B; --SUB
             Overflow <= '0';

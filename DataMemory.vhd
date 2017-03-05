@@ -5,19 +5,18 @@ use ieee.std_logic_arith.all;
 
 ---------------------------------------------------
 
-entity InstructionMemory is
-
+entity DataMem is
 Port(
 	Address		: in  std_logic_vector(31 downto 0);
 	WriteData	: in  std_logic_vector(31 downto 0);
 	ReadData	: out std_logic_vector(31 downto 0)
 );
 
-end InstructionMemory;
+end DataMem;
 
 ---------------------------------------------------
 
-Architecture behv of InstructionMemory is
+Architecture behv of DataMem is
 begin
 
 	ReadData <= "0";

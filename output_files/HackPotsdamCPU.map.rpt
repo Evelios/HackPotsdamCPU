@@ -1,5 +1,5 @@
 Analysis & Synthesis report for HackPotsdamCPU
-Sun Mar 05 08:56:19 2017
+Sun Mar 05 10:45:08 2017
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -14,9 +14,10 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "ALU:Inst_top_level"
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Port Connectivity Checks: "ALU:Insttoplevel"
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,15 +43,15 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 05 08:56:19 2017       ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 05 10:45:07 2017       ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; HackPotsdamCPU                              ;
 ; Top-level Entity Name              ; HackPotsdamCPU                              ;
 ; Family                             ; Cyclone II                                  ;
-; Total logic elements               ; 2                                           ;
-;     Total combinational functions  ; 2                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 42                                          ;
+;     Total combinational functions  ; 42                                          ;
+;     Dedicated logic registers      ; 7                                           ;
+; Total registers                    ; 7                                           ;
 ; Total pins                         ; 423                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -166,49 +167,51 @@ applicable agreement for further details.
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                              ; Library ;
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
+; SevSegDisplay.vhd                ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/SevSegDisplay.vhd     ;         ;
 ; ALU_Control.vhd                  ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/ALU_Control.vhd       ;         ;
 ; DE2_Wrapper_UnMod.vhd            ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/DE2_Wrapper_UnMod.vhd ;         ;
 +----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                              ;
-+---------------------------------------------+----------------------------+
-; Resource                                    ; Usage                      ;
-+---------------------------------------------+----------------------------+
-; Estimated Total logic elements              ; 2                          ;
-;                                             ;                            ;
-; Total combinational functions               ; 2                          ;
-; Logic element usage by number of LUT inputs ;                            ;
-;     -- 4 input functions                    ; 1                          ;
-;     -- 3 input functions                    ; 1                          ;
-;     -- <=2 input functions                  ; 0                          ;
-;                                             ;                            ;
-; Logic elements by mode                      ;                            ;
-;     -- normal mode                          ; 2                          ;
-;     -- arithmetic mode                      ; 0                          ;
-;                                             ;                            ;
-; Total registers                             ; 0                          ;
-;     -- Dedicated logic registers            ; 0                          ;
-;     -- I/O registers                        ; 0                          ;
-;                                             ;                            ;
-; I/O pins                                    ; 423                        ;
-; Embedded Multiplier 9-bit elements          ; 0                          ;
-; Maximum fan-out node                        ; ALU:Inst_top_level|Mux31~1 ;
-; Maximum fan-out                             ; 18                         ;
-; Total fan-out                               ; 25                         ;
-; Average fan-out                             ; 0.06                       ;
-+---------------------------------------------+----------------------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 42    ;
+;                                             ;       ;
+; Total combinational functions               ; 42    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 30    ;
+;     -- 3 input functions                    ; 6     ;
+;     -- <=2 input functions                  ; 6     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 38    ;
+;     -- arithmetic mode                      ; 4     ;
+;                                             ;       ;
+; Total registers                             ; 7     ;
+;     -- Dedicated logic registers            ; 7     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 423   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; SW[0] ;
+; Maximum fan-out                             ; 12    ;
+; Total fan-out                               ; 175   ;
+; Average fan-out                             ; 0.37  ;
++---------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                        ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
-; |HackPotsdamCPU            ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 423  ; 0            ; |HackPotsdamCPU                    ;              ;
-;    |ALU:Inst_top_level|    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HackPotsdamCPU|ALU:Inst_top_level ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
+; |HackPotsdamCPU            ; 42 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 423  ; 0            ; |HackPotsdamCPU                      ;              ;
+;    |ALU:Insttoplevel|      ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HackPotsdamCPU|ALU:Insttoplevel     ;              ;
+;    |TEST1:Inst_top_level|  ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HackPotsdamCPU|TEST1:Inst_top_level ;              ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -217,7 +220,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 7     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -227,15 +230,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "ALU:Inst_top_level"                                                                           ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                             ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
-; a              ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; b              ; Input  ; Info     ; Stuck at GND                                                                        ;
-; result[31..18] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+----------------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+; 23:1               ; 4 bits    ; 60 LEs        ; 16 LEs               ; 44 LEs                 ; No         ; |HackPotsdamCPU|ALU:Insttoplevel|Mux31 ;
+; 1:1                ; 4 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |HackPotsdamCPU|ALU:Insttoplevel|Add0  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:Insttoplevel"                                                                            ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; result[31..4] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -253,9 +264,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Sun Mar 05 08:56:18 2017
+    Info: Processing started: Sun Mar 05 10:45:06 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HackPotsdamCPU -c HackPotsdamCPU
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file instructionmemory.vhd
+    Info (12022): Found design unit 1: InstructionMemory-behv
+    Info (12023): Found entity 1: InstructionMemory
+Info (12021): Found 2 design units, including 1 entities, in source file datamemory.vhd
+    Info (12022): Found design unit 1: DataMem-behv
+    Info (12023): Found entity 1: DataMem
 Info (12021): Found 2 design units, including 1 entities, in source file sevsegdisplay.vhd
     Info (12022): Found design unit 1: TEST1-Behavioral
     Info (12023): Found entity 1: TEST1
@@ -280,14 +297,10 @@ Info (12021): Found 2 design units, including 1 entities, in source file signext
 Info (12021): Found 2 design units, including 1 entities, in source file shiftleft2.vhd
     Info (12022): Found design unit 1: ShiftLeft_2-behv_2
     Info (12023): Found entity 1: ShiftLeft_2
-Info (12021): Found 2 design units, including 1 entities, in source file hardwaretodisplay.vhd
-    Info (12022): Found design unit 1: SwitchInput-behv
-    Info (12023): Found entity 1: SwitchInput
 Info (12021): Found 2 design units, including 1 entities, in source file control.vhd
     Info (12022): Found design unit 1: Control-behv
     Info (12023): Found entity 1: Control
 Info (12127): Elaborating entity "HackPotsdamCPU" for the top level hierarchy
-Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(15): used implicit default value for signal "HEX0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(16): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(17): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(18): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
@@ -295,6 +308,7 @@ Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(19): u
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(20): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(21): used implicit default value for signal "HEX6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(22): used implicit default value for signal "HEX7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(25): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(27): used implicit default value for signal "UART_TXD" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(34): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(35): used implicit default value for signal "DRAM_LDQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
@@ -352,10 +366,13 @@ Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(115): 
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(120): used implicit default value for signal "AUD_DACDAT" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(122): used implicit default value for signal "AUD_XCK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(127): used implicit default value for signal "TD_RESET" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
-Critical Warning (10920): VHDL Incomplete Partial Association warning at DE2_Wrapper_UnMod.vhd(215): port or argument "Result" has 14/32 unassociated elements
+Critical Warning (10920): VHDL Incomplete Partial Association warning at DE2_Wrapper_UnMod.vhd(327): port or argument "A" has 28/32 unassociated elements
+Critical Warning (10920): VHDL Incomplete Partial Association warning at DE2_Wrapper_UnMod.vhd(327): port or argument "B" has 28/32 unassociated elements
+Critical Warning (10920): VHDL Incomplete Partial Association warning at DE2_Wrapper_UnMod.vhd(327): port or argument "Result" has 28/32 unassociated elements
 Warning (10873): Using initial value X (don't care) for net "LEDG[8]" at DE2_Wrapper_UnMod.vhd(24)
-Warning (10873): Using initial value X (don't care) for net "LEDG[6..0]" at DE2_Wrapper_UnMod.vhd(24)
-Info (12128): Elaborating entity "ALU" for hierarchy "ALU:Inst_top_level"
+Warning (10873): Using initial value X (don't care) for net "LEDG[6..4]" at DE2_Wrapper_UnMod.vhd(24)
+Info (12128): Elaborating entity "TEST1" for hierarchy "TEST1:Inst_top_level"
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:Insttoplevel"
 Warning (10541): VHDL Signal Declaration warning at ALU_Control.vhd(22): used implicit default value for signal "R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10492): VHDL Process Statement warning at ALU_Control.vhd(38): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
 Warning (13039): The following bidir pins have no drivers
@@ -519,13 +536,6 @@ Warning (13039): The following bidir pins have no drivers
     Warning (13040): Bidir "GPIO_1[34]" has no driver
     Warning (13040): Bidir "GPIO_1[35]" has no driver
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[6]" is stuck at GND
     Warning (13410): Pin "HEX1[0]" is stuck at GND
     Warning (13410): Pin "HEX1[1]" is stuck at GND
     Warning (13410): Pin "HEX1[2]" is stuck at GND
@@ -575,15 +585,29 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX7[4]" is stuck at GND
     Warning (13410): Pin "HEX7[5]" is stuck at GND
     Warning (13410): Pin "HEX7[6]" is stuck at GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND
-    Warning (13410): Pin "LEDG[1]" is stuck at GND
-    Warning (13410): Pin "LEDG[2]" is stuck at GND
-    Warning (13410): Pin "LEDG[3]" is stuck at GND
     Warning (13410): Pin "LEDG[4]" is stuck at GND
     Warning (13410): Pin "LEDG[5]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
     Warning (13410): Pin "LEDG[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDR[14]" is stuck at GND
+    Warning (13410): Pin "LEDR[15]" is stuck at GND
+    Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDR[17]" is stuck at GND
     Warning (13410): Pin "UART_TXD" is stuck at GND
     Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND
     Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND
@@ -720,8 +744,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "TD_RESET" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 41 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "CLOCK_27"
+Warning (21074): Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "CLOCK_50"
     Warning (15610): No output dependent on input pin "EXT_CLOCK"
     Warning (15610): No output dependent on input pin "KEY[0]"
@@ -732,14 +755,6 @@ Warning (21074): Design contains 41 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]"
     Warning (15610): No output dependent on input pin "SW[8]"
     Warning (15610): No output dependent on input pin "SW[9]"
-    Warning (15610): No output dependent on input pin "SW[10]"
-    Warning (15610): No output dependent on input pin "SW[11]"
-    Warning (15610): No output dependent on input pin "SW[12]"
-    Warning (15610): No output dependent on input pin "SW[13]"
-    Warning (15610): No output dependent on input pin "SW[14]"
-    Warning (15610): No output dependent on input pin "SW[15]"
-    Warning (15610): No output dependent on input pin "SW[16]"
-    Warning (15610): No output dependent on input pin "SW[17]"
     Warning (15610): No output dependent on input pin "UART_RXD"
     Warning (15610): No output dependent on input pin "OTG_INT0"
     Warning (15610): No output dependent on input pin "OTG_INT1"
@@ -762,15 +777,15 @@ Warning (21074): Design contains 41 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TD_DATA[7]"
     Warning (15610): No output dependent on input pin "TD_HS"
     Warning (15610): No output dependent on input pin "TD_VS"
-Info (21057): Implemented 425 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 465 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 47 input pins
     Info (21059): Implemented 217 output pins
     Info (21060): Implemented 159 bidirectional pins
-    Info (21061): Implemented 2 logic cells
+    Info (21061): Implemented 42 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 472 warnings
-    Info: Peak virtual memory: 498 megabytes
-    Info: Processing ended: Sun Mar 05 08:56:19 2017
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 506 megabytes
+    Info: Processing ended: Sun Mar 05 10:45:08 2017
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 

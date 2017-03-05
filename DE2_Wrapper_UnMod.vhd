@@ -135,6 +135,15 @@ ARCHITECTURE structural OF HackPotsdamCPU IS
 
 -- TOP LEVEL COMPONENT
 
+componENT MUX_2to1 is
+	PORT(
+		Con	: IN 	STD_LOGIC;
+		A 	: IN	STD_LOGIC_VECTOR	(31 downto 0);
+		B 	: IN	STD_LOGIC_VECTOR	(31 downto 0);
+		X 	: OUT	STD_LOGIC_VECTOR	(31 downto 0)
+		);
+END component;
+
 component SignExtend is
    Port(
 	I:	in  std_logic_vector(15 downto 0);
@@ -169,7 +178,6 @@ END component;
 
 
 
-
 component TEST1 is
 port (
 		  clk 		: in std_logic;
@@ -179,22 +187,40 @@ port (
 end component;
 
 
-component ShiftLeft2 is
-   Port(
-	I:	in  std_logic_vector(15 downto 0);
-	O:	out std_logic_vector(31 downto 0)
+
+
+
+comPONENT InstructionMemory is
+
+Port(
+	ReadAddress	: in  std_logic_vector(31 downto 0);
+	Instruction	: out std_logic_vector(31 downto 0)
 );
+
 end component;
 
-component SwitchInput is
+
+
+
+component DataMem is
 Port(
-	sw0 : in std_logic;
-	sw1 : in std_logic;
-	sw2 : in std_logic;
-	sw3 : in std_logic;
-	O	 :	out std_logic_vector(3 downto 0)
+	Address		: in  std_logic_vector(31 downto 0);
+	WriteData	: in  std_logic_vector(31 downto 0);
+	ReadData	: out std_logic_vector(31 downto 0)
 );
+end compoNENT;
+
+
+
+component ShiftLeft_2 is 
+Port(
+	Inn:	in  std_logic_vector(31 downto 0);
+	Outt:	out std_logic_vector(31 downto 0)
+);
+
 end component;
+
+
 
 component ALU is
   PORT (
@@ -209,20 +235,118 @@ component ALU is
 		);
 END component;
 
+
+Component RegisterUnit IS PORT(
+	slowClk		: in std_logic;
+	RegWrite		: in std_logic;
+	ReadAddr1	: in std_logic_vector(4 downto 0);
+	ReadAddr2	: in std_logic_vector(4 downto 0);
+	WriteAddr1	: in std_logic_vector(4 downto 0);
+	WriteData	: in std_logic_vector(32 downto 0);
+	ReadData1	: out std_logic_vector(32 downto 0);	
+	ReadData2	: out std_logic_vector(32 downto 0)
+);
+END Component;
+
+signal Res : std_logic_vector(3 downto 0);
 BEGIN
 -- INSTANTIATION OF THE TOP LEVEL COMPONENT
 
-Inst_top_level: ALU
+
+
+
+--Inst_top_level: MUX_2to1
+--			port Map(
+--				Con	=>  
+--				A 	   =>  
+--				B 	   =>    
+--				X 	   =>  
+--			);
+
+
+
+--Inst_top_level: SignExtend
+--			port Map(
+--				I =>
+--				O =>
+--			);
+
+--Inst_top_level: Control
+--			port Map(
+--				Op       =>
+--				RegDes   =>
+--				ALU_Src  =>
+--				MemtoReg =>
+--				RegWrite =>
+--				MemRead  =>
+--				Branch   =>
+--				ALUOp1   =>
+--				ALUOp2   =>
+--			
+--			);
+
+
+--Inst_top_level: Register32
+--			port Map(
+--			    d  =>   
+--				ld  =>  
+--				clr =>  
+--				clk =>  
+--				q   =>  
+--				);
+
+Inst_top_level: TEST1
+			port Map(
+				clk 		 => CLOCK_27,
+				bcd 		 => Res,
+				segment7  => HEX0(6 downto 0) 
+			);
+
+
+--Inst_top_level: InstructionMemory
+--			port map(
+--			ReadAddress	=>
+--			Instruction	=>
+--			);
+--
+
+
+--Inst_top_level: DataMem
+--			port map(
+--				Address		=>
+--				WriteData	=>
+--				ReadData		=>
+--			);
+
+--Inst_top_level: ShiftLeft_2
+--			port map(
+--			Inn  => 
+--			Outt => 
+--			);
+
+Insttoplevel: ALU
 		PORT MAP(
 		--ALU Signal
-        A  => x"FFFFFFFF",   	
-        B  => x"00000000",
-        Result(17 downto 0) => LEDR(17 downto 0),    
+        A(3 downto 0)  => SW(17 downto 14),   	
+        B(3 downto 0)    => SW(13 downto 10),
+        Result(3 downto 0) => Res,    
         Overflow => LEDG(7),
 		  FunctField => SW(5 downto 0),
-		  ALU_op =>	SW(17 downto 16)	
+		  ALU_op =>	SW(9 downto 8)	
 		);
 
-		
+--Inst_top_level: RegisterUnit
+--			port map(
+--				slowClk		=>
+--				RegWrite		=>
+--				ReadAddr1	=>
+--				ReadAddr2	=>
+--		   	WriteAddr1	=>
+--         	WriteData	=>
+--				ReadData1	=>
+--				ReadData2	=>
+--			);
+--		
+		LEDG(3 downto 0)<= Res;
 END structural;
 
