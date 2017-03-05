@@ -5,20 +5,21 @@ use ieee.std_logic_arith.all;
 
 ---------------------------------------------------
 
-entity ShiftLeft_2 is 
+entity ShiftLeft2 is
 
 Port(
-	I:	in  std_logic_vector(31 downto 0);
-	O:	out std_logic_vector(31 downto 0)
+	I:	in  std_logic_vector(15 downto 0);
+	O:	out std_logic_vector(31 downto 0);
 );
 
-end ShiftLeft_2;
+end ShiftLeft2;
 
 ---------------------------------------------------
 
-Architecture behv_2 of ShiftLeft_2 is
+Architecture behv of ShiftLeft2 is
 begin
 
-	O <= I(29 downto 0) & "00";
+	O(31 downto 16) <= '0';
+	O(15 downto 0) <= I(15 downto 0);
 
-end behv_2;
+end behv;
