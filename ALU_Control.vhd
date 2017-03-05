@@ -1,6 +1,9 @@
 LIBRARY ieee;
 
 USE ieee.std_logic_1164.ALL;
+use ieee.std_logic_arith.all;
+USE ieee.std_logic_unsigned.all;
+
 
 ENTITY ALU IS
   PORT (
@@ -16,6 +19,8 @@ ENTITY ALU IS
 END ALU;
 
 ARCHITECTURE ALU_main OF ALU IS
+SIGNAL R : std_logic_vector(31 downto 0);
+
 BEGIN
   --Code goes hre
   --switch case statments
@@ -30,12 +35,12 @@ PROCESS(A,B, FunctField)
             Overflow <= '0';
           WHEN "000010" =>
             Result <= A + B;--ADD
-            Overflow <= (((A(31) AND B(31)) AND (NOT Result))   OR      (((NOT A(31)) AND (NOT B(31))) AND Result));
+            Overflow <= (((A(31) AND B(31)) AND (NOT R(31)))OR(((NOT A(31)) AND (NOT B(31))) AND R(31)));
           WHEN "000110" =>
             Result <= A - B; --SUB
             Overflow <= '0';
           WHEN "000111" =>
-            Result <= A < B;--Set on Less Than
+            Result <= ((NOT A) AND B);--Set on Less Than
             Overflow <= '0';
           WHEN "001100"=>
             Result <= A NOR B;--NOR

@@ -136,56 +136,38 @@ ARCHITECTURE structural OF HackPotsdamCPU IS
 -- TOP LEVEL COMPONENT
 
 component SignExtend is
-   port(
-       BTNReset,BTNEnable,BTNFwd  	:in      std_logic;
-       CLK50MHZ        	:in      std_logic;
-       CA              	:out     std_logic_vector(27 downto 0); --7 Seg Cathodes
-		 oData				:out		std_logic_vector(7 downto 0);
-		 oEnable				:out		std_logic;
-		 oMode_Select		:out		std_logic
-       );
+   Port(
+	I:	in  std_logic_vector(15 downto 0);
+	O:	out std_logic_vector(31 downto 0)
+);
 end component;
 
-signal oData	:std_logic_vector(7 downto 0);
-signal oEnable, oMode_Select	:std_logic;
-signal Cathodes	:std_logic_vector(27 downto 0);
-BEGIN
 
-LCD_ON <= '1';
-LCD_DATA <= oData;
-LCD_EN <= oEnable;
-LCD_RS <= oMode_Select;
-GPIO_1(34) <= oData(0);
-GPIO_1(32) <= oData(1);
-GPIO_1(30) <= oData(2);
-GPIO_1(28) <= oData(3);
-GPIO_1(35) <= oData(4);
-GPIO_1(33) <= oData(5);
-GPIO_1(31) <= oData(6);
-GPIO_1(29) <= oData(7);
-GPIO_1(26) <= oEnable;
-GPIO_1(27) <= oMode_Select;
-GPIO_1(25) <= KEY(2);
-HEX0 <= Cathodes(6 downto 0);
-HEX1 <= Cathodes(13 downto 7);
-HEX2 <= Cathodes(20 downto 14);
-HEX3 <= Cathodes(27 downto 21);
-HEX4 <= "1111111";
-HEX5 <= "1111111";
-HEX6 <= "1111111";
-HEX7 <= "1111111";
+component ALU is
+  PORT (
+		--ALU Signal
+      A       	   : IN    std_logic_vector(31 downto 0);--A is a 32 bit signal.
+      B     	   : IN    std_logic_vector(31 downto 0);--B is a 32 bit signal.
+      Result    	: OUT   std_logic_vector(31 downto 0); -- Result of A Funct_Field
+      Overflow   	: OUT   std_logic;--Overflow
+		--ALU Control
+		FunctField	:IN     std_logic_vector(5 downto 0); 
+		ALU_op		:IN		std_logic_vector(1 downto 0)
+		);
+END component;
+
+BEGIN
 -- INSTANTIATION OF THE TOP LEVEL COMPONENT
 
-Inst_top_level: Final_Project
-		port map (
-		BTNReset => KEY(0),
-		BTNEnable => KEY(2),
-		BTNFwd => KEY(1),
-		CLK50MHZ => CLOCK_50,
-		CA => Cathodes,
-		oData => oData,
-		oEnable => oEnable,
-		oMode_Select => oMode_Select
+Inst_top_level: ALU
+		PORT MAP(
+		--ALU Signal
+        A  => x"FFFFFFFF",   	
+        B  => x"00000000",
+        Result(17 downto 0) => LEDR(17 downto 0),    
+        Overflow => LEDG(7),
+		  FunctField => SW(5 downto 0),
+		  ALU_op =>	SW(17 downto 16)	
 		);
 
 		

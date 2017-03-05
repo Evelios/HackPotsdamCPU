@@ -1,5 +1,5 @@
 Analysis & Synthesis report for HackPotsdamCPU
-Sun Mar 05 01:01:50 2017
+Sun Mar 05 03:21:50 2017
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun Mar 05 01:01:50 2017           ;
+; Analysis & Synthesis Status        ; Failed - Sun Mar 05 03:21:50 2017           ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
 ; Revision Name                      ; HackPotsdamCPU                              ;
 ; Top-level Entity Name              ; HackPotsdamCPU                              ;
@@ -161,35 +161,43 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Sun Mar 05 01:01:49 2017
+    Info: Processing started: Sun Mar 05 03:21:49 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HackPotsdamCPU -c HackPotsdamCPU
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
-Info (12021): Found 2 design units, including 1 entities, in source file final_project.vhd
-    Info (12022): Found design unit 1: Final_Project-Behavioral
-    Info (12023): Found entity 1: Final_Project
+Info (12021): Found 2 design units, including 1 entities, in source file registerunit.vhd
+    Info (12022): Found design unit 1: RegisterUnit-description
+    Info (12023): Found entity 1: RegisterUnit
+Info (12021): Found 2 design units, including 1 entities, in source file register32.vhd
+    Info (12022): Found design unit 1: Register32-description
+    Info (12023): Found entity 1: Register32
+Info (12021): Found 2 design units, including 1 entities, in source file segdisplaydriver.vhd
+    Info (12022): Found design unit 1: SegDisplayDriver-Behavioral
+    Info (12023): Found entity 1: SegDisplayDriver
+Info (12021): Found 2 design units, including 1 entities, in source file mux.vhd
+    Info (12022): Found design unit 1: MUX_2to1-Behavior
+    Info (12023): Found entity 1: MUX_2to1
+Info (12021): Found 2 design units, including 1 entities, in source file alu_control.vhd
+    Info (12022): Found design unit 1: ALU-ALU_main
+    Info (12023): Found entity 1: ALU
 Info (12021): Found 2 design units, including 1 entities, in source file de2_wrapper_unmod.vhd
     Info (12022): Found design unit 1: HackPotsdamCPU-structural
     Info (12023): Found entity 1: HackPotsdamCPU
 Info (12021): Found 2 design units, including 1 entities, in source file signextend.vhd
-    Info (12022): Found design unit 1: ShiftLeft2-behv
-    Info (12023): Found entity 1: ShiftLeft2
+    Info (12022): Found design unit 1: SignExtend-behv
+    Info (12023): Found entity 1: SignExtend
 Info (12021): Found 2 design units, including 1 entities, in source file shiftleft2.vhd
     Info (12022): Found design unit 1: ShiftLeft_2-behv_2
     Info (12023): Found entity 1: ShiftLeft_2
-Info (12021): Found 2 design units, including 1 entities, in source file sevsegdisplay.vhd
-    Info (12022): Found design unit 1: TEST1-Behavioral
-    Info (12023): Found entity 1: TEST1
 Info (12021): Found 2 design units, including 1 entities, in source file hardwaretodisplay.vhd
     Info (12022): Found design unit 1: SwitchInput-behv
     Info (12023): Found entity 1: SwitchInput
 Info (12021): Found 2 design units, including 1 entities, in source file control.vhd
     Info (12022): Found design unit 1: Control-behv
     Info (12023): Found entity 1: Control
-Error (10481): VHDL Use Clause error at Final_Project.vhd(3): design library "work" does not contain primary unit "values" File: C:/Users/ulab/Documents/HackPotsdam/Final_Project.vhd Line: 3
-Error (10800): VHDL error at Final_Project.vhd(3): selected name in use clause is not an expanded name File: C:/Users/ulab/Documents/HackPotsdam/Final_Project.vhd Line: 3
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 0 warnings
-    Error: Peak virtual memory: 486 megabytes
-    Error: Processing ended: Sun Mar 05 01:01:50 2017
+Error (10482): VHDL error at RegisterUnit.vhd(5): object "std_logic" is used but not declared File: C:/Users/ulab/Documents/HackPotsdam/RegisterUnit.vhd Line: 5
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 1 error, 0 warnings
+    Error: Peak virtual memory: 490 megabytes
+    Error: Processing ended: Sun Mar 05 03:21:50 2017
     Error: Elapsed time: 00:00:01
     Error: Total CPU time (on all processors): 00:00:01
 

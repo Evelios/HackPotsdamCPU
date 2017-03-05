@@ -6,7 +6,7 @@ ENTITY MUX_2to1 is
 		Con	: IN 	STD_LOGIC;
 		A 	: IN	STD_LOGIC_VECTOR	(31 downto 0);
 		B 	: IN	STD_LOGIC_VECTOR	(31 downto 0);
-		X 	: OUT	STD_LOGIC_VECTOR	(31 downto 0);
+		X 	: OUT	STD_LOGIC_VECTOR	(31 downto 0)
 		);
 		
 END ENTITY MUX_2to1;
