@@ -11,7 +11,7 @@
 -- SNR:             : SNR: 97.95dB over i = 0 to 255
 
 DEPTH = 26;
-WIDTH = 16;
+WIDTH = 32;
 
 ADDRESS_RADIX = DEC;
 DATA_RADIX = DEC;
