@@ -1,6 +1,6 @@
 Analysis & Synthesis report for HackPotsdamCPU
-Sun Mar 05 10:45:08 2017
-Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
+Wed Mar 08 13:57:20 2017
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -16,48 +16,50 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Full Version
   8. General Register Statistics
   9. Multiplexer Restructuring Statistics (Restructuring Performed)
  10. Port Connectivity Checks: "ALU:Insttoplevel"
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2013 Altera Corporation
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, Altera MegaCore Function License 
-Agreement, or other applicable license agreement, including, 
-without limitation, that your use is for the sole purpose of 
-programming logic devices manufactured by Altera and sold by 
-Altera or its authorized distributors.  Please refer to the 
-applicable agreement for further details.
+Subscription Agreement, the Altera Quartus II License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 05 10:45:07 2017       ;
-; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Full Version ;
-; Revision Name                      ; HackPotsdamCPU                              ;
-; Top-level Entity Name              ; HackPotsdamCPU                              ;
-; Family                             ; Cyclone II                                  ;
-; Total logic elements               ; 42                                          ;
-;     Total combinational functions  ; 42                                          ;
-;     Dedicated logic registers      ; 7                                           ;
-; Total registers                    ; 7                                           ;
-; Total pins                         ; 423                                         ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
-+------------------------------------+---------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Mar 08 13:57:20 2017      ;
+; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name                      ; HackPotsdamCPU                             ;
+; Top-level Entity Name              ; DE2_Wrapper_UnMod                          ;
+; Family                             ; Cyclone IV E                               ;
+; Total logic elements               ; 36                                         ;
+;     Total combinational functions  ; 36                                         ;
+;     Dedicated logic registers      ; 7                                          ;
+; Total registers                    ; 7                                          ;
+; Total pins                         ; 423                                        ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -65,9 +67,8 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP2C35F672C6       ;                    ;
-; Top-level entity name                                                      ; HackPotsdamCPU     ; HackPotsdamCPU     ;
-; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Top-level entity name                                                      ; DE2_Wrapper_UnMod  ; HackPotsdamCPU     ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
@@ -106,12 +107,14 @@ applicable agreement for further details.
 ; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
 ; Auto ROM Replacement                                                       ; On                 ; On                 ;
 ; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
 ; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
 ; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
 ; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -119,13 +122,13 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
 ; Report Parameter Settings                                                  ; On                 ; On                 ;
 ; Report Source Assignments                                                  ; On                 ; On                 ;
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
-; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                          ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
@@ -150,68 +153,70 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                     ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                              ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
-; SevSegDisplay.vhd                ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/SevSegDisplay.vhd     ;         ;
-; ALU_Control.vhd                  ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/ALU_Control.vhd       ;         ;
-; DE2_Wrapper_UnMod.vhd            ; yes             ; User VHDL File  ; C:/Users/ulab/Documents/HackPotsdam/DE2_Wrapper_UnMod.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                          ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
+; SevSegDisplay.vhd                ; yes             ; User VHDL File  ; C:/Users/ownerdell/Documents/HACKPOTSDAM/SevSegDisplay.vhd     ;         ;
+; ALU_Control.vhd                  ; yes             ; User VHDL File  ; C:/Users/ownerdell/Documents/HACKPOTSDAM/ALU_Control.vhd       ;         ;
+; DE2_Wrapper_UnMod.vhd            ; yes             ; User VHDL File  ; C:/Users/ownerdell/Documents/HACKPOTSDAM/DE2_Wrapper_UnMod.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 42    ;
-;                                             ;       ;
-; Total combinational functions               ; 42    ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 30    ;
-;     -- 3 input functions                    ; 6     ;
-;     -- <=2 input functions                  ; 6     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 38    ;
-;     -- arithmetic mode                      ; 4     ;
-;                                             ;       ;
-; Total registers                             ; 7     ;
-;     -- Dedicated logic registers            ; 7     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 423   ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; SW[0] ;
-; Maximum fan-out                             ; 12    ;
-; Total fan-out                               ; 175   ;
-; Average fan-out                             ; 0.37  ;
-+---------------------------------------------+-------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 36          ;
+;                                             ;             ;
+; Total combinational functions               ; 36          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 20          ;
+;     -- 3 input functions                    ; 9           ;
+;     -- <=2 input functions                  ; 7           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 32          ;
+;     -- arithmetic mode                      ; 4           ;
+;                                             ;             ;
+; Total registers                             ; 7           ;
+;     -- Dedicated logic registers            ; 7           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 423         ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; SW[1]~input ;
+; Maximum fan-out                             ; 10          ;
+; Total fan-out                               ; 728         ;
+; Average fan-out                             ; 0.69        ;
++---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                  ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
-; |HackPotsdamCPU            ; 42 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 423  ; 0            ; |HackPotsdamCPU                      ;              ;
-;    |ALU:Insttoplevel|      ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HackPotsdamCPU|ALU:Insttoplevel     ;              ;
-;    |TEST1:Inst_top_level|  ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |HackPotsdamCPU|TEST1:Inst_top_level ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                             ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
+; |DE2_Wrapper_UnMod         ; 36 (0)            ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 423  ; 0            ; |DE2_Wrapper_UnMod                      ; work         ;
+;    |ALU:Insttoplevel|      ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_Wrapper_UnMod|ALU:Insttoplevel     ; work         ;
+;    |TEST1:Inst_top_level|  ; 7 (7)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_Wrapper_UnMod|TEST1:Inst_top_level ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -230,14 +235,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
-; 23:1               ; 4 bits    ; 60 LEs        ; 16 LEs               ; 44 LEs                 ; No         ; |HackPotsdamCPU|ALU:Insttoplevel|Mux31 ;
-; 1:1                ; 4 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |HackPotsdamCPU|ALU:Insttoplevel|Add0  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 23:1               ; 4 bits    ; 60 LEs        ; 16 LEs               ; 44 LEs                 ; No         ; |DE2_Wrapper_UnMod|ALU:Insttoplevel|Mux31 ;
+; 1:1                ; 4 bits    ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |DE2_Wrapper_UnMod|ALU:Insttoplevel|Add0  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------+
@@ -249,12 +254,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 423                         ;
+; cycloneiii_ff         ; 7                           ;
+;     plain             ; 7                           ;
+; cycloneiii_io_obuf    ; 159                         ;
+; cycloneiii_lcell_comb ; 37                          ;
+;     arith             ; 4                           ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 3                           ;
+;     normal            ; 33                          ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 6                           ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 20                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.40                        ;
+; Average LUT depth     ; 1.42                        ;
++-----------------------+-----------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -263,10 +292,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.0 Build 156 04/24/2013 SJ Full Version
-    Info: Processing started: Sun Mar 05 10:45:06 2017
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Wed Mar 08 13:56:38 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off HackPotsdamCPU -c HackPotsdamCPU
-Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 2 design units, including 1 entities, in source file instructionmemory.vhd
     Info (12022): Found design unit 1: InstructionMemory-behv
     Info (12023): Found entity 1: InstructionMemory
@@ -289,8 +318,8 @@ Info (12021): Found 2 design units, including 1 entities, in source file alu_con
     Info (12022): Found design unit 1: ALU-ALU_main
     Info (12023): Found entity 1: ALU
 Info (12021): Found 2 design units, including 1 entities, in source file de2_wrapper_unmod.vhd
-    Info (12022): Found design unit 1: HackPotsdamCPU-structural
-    Info (12023): Found entity 1: HackPotsdamCPU
+    Info (12022): Found design unit 1: DE2_Wrapper_UnMod-structural
+    Info (12023): Found entity 1: DE2_Wrapper_UnMod
 Info (12021): Found 2 design units, including 1 entities, in source file signextend.vhd
     Info (12022): Found design unit 1: SignExtend-behv
     Info (12023): Found entity 1: SignExtend
@@ -300,7 +329,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file shiftle
 Info (12021): Found 2 design units, including 1 entities, in source file control.vhd
     Info (12022): Found design unit 1: Control-behv
     Info (12023): Found entity 1: Control
-Info (12127): Elaborating entity "HackPotsdamCPU" for the top level hierarchy
+Info (12127): Elaborating entity "DE2_Wrapper_UnMod" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(16): used implicit default value for signal "HEX1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(17): used implicit default value for signal "HEX2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10541): VHDL Signal Declaration warning at DE2_Wrapper_UnMod.vhd(18): used implicit default value for signal "HEX3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
@@ -375,166 +404,166 @@ Info (12128): Elaborating entity "TEST1" for hierarchy "TEST1:Inst_top_level"
 Info (12128): Elaborating entity "ALU" for hierarchy "ALU:Insttoplevel"
 Warning (10541): VHDL Signal Declaration warning at ALU_Control.vhd(22): used implicit default value for signal "R" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
 Warning (10492): VHDL Process Statement warning at ALU_Control.vhd(38): signal "R" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (13039): The following bidir pins have no drivers
-    Warning (13040): Bidir "DRAM_DQ[0]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[1]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[2]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[3]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[4]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[5]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[6]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[7]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[8]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[9]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[10]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[11]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[12]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[13]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[14]" has no driver
-    Warning (13040): Bidir "DRAM_DQ[15]" has no driver
-    Warning (13040): Bidir "FL_DQ[0]" has no driver
-    Warning (13040): Bidir "FL_DQ[1]" has no driver
-    Warning (13040): Bidir "FL_DQ[2]" has no driver
-    Warning (13040): Bidir "FL_DQ[3]" has no driver
-    Warning (13040): Bidir "FL_DQ[4]" has no driver
-    Warning (13040): Bidir "FL_DQ[5]" has no driver
-    Warning (13040): Bidir "FL_DQ[6]" has no driver
-    Warning (13040): Bidir "FL_DQ[7]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[0]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[1]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[2]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[3]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[4]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[5]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[6]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[7]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[8]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[9]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[10]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[11]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[12]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[13]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[14]" has no driver
-    Warning (13040): Bidir "SRAM_DQ[15]" has no driver
-    Warning (13040): Bidir "OTG_DATA[0]" has no driver
-    Warning (13040): Bidir "OTG_DATA[1]" has no driver
-    Warning (13040): Bidir "OTG_DATA[2]" has no driver
-    Warning (13040): Bidir "OTG_DATA[3]" has no driver
-    Warning (13040): Bidir "OTG_DATA[4]" has no driver
-    Warning (13040): Bidir "OTG_DATA[5]" has no driver
-    Warning (13040): Bidir "OTG_DATA[6]" has no driver
-    Warning (13040): Bidir "OTG_DATA[7]" has no driver
-    Warning (13040): Bidir "OTG_DATA[8]" has no driver
-    Warning (13040): Bidir "OTG_DATA[9]" has no driver
-    Warning (13040): Bidir "OTG_DATA[10]" has no driver
-    Warning (13040): Bidir "OTG_DATA[11]" has no driver
-    Warning (13040): Bidir "OTG_DATA[12]" has no driver
-    Warning (13040): Bidir "OTG_DATA[13]" has no driver
-    Warning (13040): Bidir "OTG_DATA[14]" has no driver
-    Warning (13040): Bidir "OTG_DATA[15]" has no driver
-    Warning (13040): Bidir "LCD_DATA[0]" has no driver
-    Warning (13040): Bidir "LCD_DATA[1]" has no driver
-    Warning (13040): Bidir "LCD_DATA[2]" has no driver
-    Warning (13040): Bidir "LCD_DATA[3]" has no driver
-    Warning (13040): Bidir "LCD_DATA[4]" has no driver
-    Warning (13040): Bidir "LCD_DATA[5]" has no driver
-    Warning (13040): Bidir "LCD_DATA[6]" has no driver
-    Warning (13040): Bidir "LCD_DATA[7]" has no driver
-    Warning (13040): Bidir "SD_DAT" has no driver
-    Warning (13040): Bidir "SD_DAT3" has no driver
-    Warning (13040): Bidir "SD_CMD" has no driver
-    Warning (13040): Bidir "I2C_SDAT" has no driver
-    Warning (13040): Bidir "ENET_DATA[0]" has no driver
-    Warning (13040): Bidir "ENET_DATA[1]" has no driver
-    Warning (13040): Bidir "ENET_DATA[2]" has no driver
-    Warning (13040): Bidir "ENET_DATA[3]" has no driver
-    Warning (13040): Bidir "ENET_DATA[4]" has no driver
-    Warning (13040): Bidir "ENET_DATA[5]" has no driver
-    Warning (13040): Bidir "ENET_DATA[6]" has no driver
-    Warning (13040): Bidir "ENET_DATA[7]" has no driver
-    Warning (13040): Bidir "ENET_DATA[8]" has no driver
-    Warning (13040): Bidir "ENET_DATA[9]" has no driver
-    Warning (13040): Bidir "ENET_DATA[10]" has no driver
-    Warning (13040): Bidir "ENET_DATA[11]" has no driver
-    Warning (13040): Bidir "ENET_DATA[12]" has no driver
-    Warning (13040): Bidir "ENET_DATA[13]" has no driver
-    Warning (13040): Bidir "ENET_DATA[14]" has no driver
-    Warning (13040): Bidir "ENET_DATA[15]" has no driver
-    Warning (13040): Bidir "AUD_ADCLRCK" has no driver
-    Warning (13040): Bidir "AUD_DACLRCK" has no driver
-    Warning (13040): Bidir "AUD_BCLK" has no driver
-    Warning (13040): Bidir "GPIO_0[0]" has no driver
-    Warning (13040): Bidir "GPIO_0[1]" has no driver
-    Warning (13040): Bidir "GPIO_0[2]" has no driver
-    Warning (13040): Bidir "GPIO_0[3]" has no driver
-    Warning (13040): Bidir "GPIO_0[4]" has no driver
-    Warning (13040): Bidir "GPIO_0[5]" has no driver
-    Warning (13040): Bidir "GPIO_0[6]" has no driver
-    Warning (13040): Bidir "GPIO_0[7]" has no driver
-    Warning (13040): Bidir "GPIO_0[8]" has no driver
-    Warning (13040): Bidir "GPIO_0[9]" has no driver
-    Warning (13040): Bidir "GPIO_0[10]" has no driver
-    Warning (13040): Bidir "GPIO_0[11]" has no driver
-    Warning (13040): Bidir "GPIO_0[12]" has no driver
-    Warning (13040): Bidir "GPIO_0[13]" has no driver
-    Warning (13040): Bidir "GPIO_0[14]" has no driver
-    Warning (13040): Bidir "GPIO_0[15]" has no driver
-    Warning (13040): Bidir "GPIO_0[16]" has no driver
-    Warning (13040): Bidir "GPIO_0[17]" has no driver
-    Warning (13040): Bidir "GPIO_0[18]" has no driver
-    Warning (13040): Bidir "GPIO_0[19]" has no driver
-    Warning (13040): Bidir "GPIO_0[20]" has no driver
-    Warning (13040): Bidir "GPIO_0[21]" has no driver
-    Warning (13040): Bidir "GPIO_0[22]" has no driver
-    Warning (13040): Bidir "GPIO_0[23]" has no driver
-    Warning (13040): Bidir "GPIO_0[24]" has no driver
-    Warning (13040): Bidir "GPIO_0[25]" has no driver
-    Warning (13040): Bidir "GPIO_0[26]" has no driver
-    Warning (13040): Bidir "GPIO_0[27]" has no driver
-    Warning (13040): Bidir "GPIO_0[28]" has no driver
-    Warning (13040): Bidir "GPIO_0[29]" has no driver
-    Warning (13040): Bidir "GPIO_0[30]" has no driver
-    Warning (13040): Bidir "GPIO_0[31]" has no driver
-    Warning (13040): Bidir "GPIO_0[32]" has no driver
-    Warning (13040): Bidir "GPIO_0[33]" has no driver
-    Warning (13040): Bidir "GPIO_0[34]" has no driver
-    Warning (13040): Bidir "GPIO_0[35]" has no driver
-    Warning (13040): Bidir "GPIO_1[0]" has no driver
-    Warning (13040): Bidir "GPIO_1[1]" has no driver
-    Warning (13040): Bidir "GPIO_1[2]" has no driver
-    Warning (13040): Bidir "GPIO_1[3]" has no driver
-    Warning (13040): Bidir "GPIO_1[4]" has no driver
-    Warning (13040): Bidir "GPIO_1[5]" has no driver
-    Warning (13040): Bidir "GPIO_1[6]" has no driver
-    Warning (13040): Bidir "GPIO_1[7]" has no driver
-    Warning (13040): Bidir "GPIO_1[8]" has no driver
-    Warning (13040): Bidir "GPIO_1[9]" has no driver
-    Warning (13040): Bidir "GPIO_1[10]" has no driver
-    Warning (13040): Bidir "GPIO_1[11]" has no driver
-    Warning (13040): Bidir "GPIO_1[12]" has no driver
-    Warning (13040): Bidir "GPIO_1[13]" has no driver
-    Warning (13040): Bidir "GPIO_1[14]" has no driver
-    Warning (13040): Bidir "GPIO_1[15]" has no driver
-    Warning (13040): Bidir "GPIO_1[16]" has no driver
-    Warning (13040): Bidir "GPIO_1[17]" has no driver
-    Warning (13040): Bidir "GPIO_1[18]" has no driver
-    Warning (13040): Bidir "GPIO_1[19]" has no driver
-    Warning (13040): Bidir "GPIO_1[20]" has no driver
-    Warning (13040): Bidir "GPIO_1[21]" has no driver
-    Warning (13040): Bidir "GPIO_1[22]" has no driver
-    Warning (13040): Bidir "GPIO_1[23]" has no driver
-    Warning (13040): Bidir "GPIO_1[24]" has no driver
-    Warning (13040): Bidir "GPIO_1[25]" has no driver
-    Warning (13040): Bidir "GPIO_1[26]" has no driver
-    Warning (13040): Bidir "GPIO_1[27]" has no driver
-    Warning (13040): Bidir "GPIO_1[28]" has no driver
-    Warning (13040): Bidir "GPIO_1[29]" has no driver
-    Warning (13040): Bidir "GPIO_1[30]" has no driver
-    Warning (13040): Bidir "GPIO_1[31]" has no driver
-    Warning (13040): Bidir "GPIO_1[32]" has no driver
-    Warning (13040): Bidir "GPIO_1[33]" has no driver
-    Warning (13040): Bidir "GPIO_1[34]" has no driver
-    Warning (13040): Bidir "GPIO_1[35]" has no driver
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[0]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[1]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[2]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[3]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[4]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[5]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[6]" has no driver
+    Warning (13040): bidirectional pin "FL_DQ[7]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[0]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[1]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[2]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[3]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[4]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[5]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[6]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[7]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[8]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[9]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[10]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[11]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[12]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[13]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[14]" has no driver
+    Warning (13040): bidirectional pin "SRAM_DQ[15]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[0]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[1]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[2]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[3]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[4]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[5]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[6]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[7]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[8]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[9]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[10]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[11]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[12]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[13]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[14]" has no driver
+    Warning (13040): bidirectional pin "OTG_DATA[15]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[0]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[1]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[2]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[3]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[4]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[5]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[6]" has no driver
+    Warning (13040): bidirectional pin "LCD_DATA[7]" has no driver
+    Warning (13040): bidirectional pin "SD_DAT" has no driver
+    Warning (13040): bidirectional pin "SD_DAT3" has no driver
+    Warning (13040): bidirectional pin "SD_CMD" has no driver
+    Warning (13040): bidirectional pin "I2C_SDAT" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[0]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[1]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[2]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[3]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[4]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[5]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[6]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[7]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[8]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[9]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[10]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[11]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[12]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[13]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[14]" has no driver
+    Warning (13040): bidirectional pin "ENET_DATA[15]" has no driver
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[0]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[1]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[2]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[3]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[4]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[5]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[6]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[7]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[8]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[9]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[10]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[11]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[12]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[13]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[14]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[15]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[16]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[17]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[18]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[19]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[20]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[21]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[22]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[23]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[24]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[25]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[26]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[27]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[28]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[29]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[30]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[31]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[32]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[33]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[34]" has no driver
+    Warning (13040): bidirectional pin "GPIO_0[35]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[0]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[1]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[2]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[3]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[4]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[5]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[6]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[7]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[8]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[9]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[10]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[11]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[12]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[13]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[14]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[15]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[16]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[17]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[18]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[19]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[20]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[21]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[22]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[23]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[24]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[25]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[26]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[27]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[28]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[29]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[30]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[31]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[32]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[33]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[34]" has no driver
+    Warning (13040): bidirectional pin "GPIO_1[35]" has no driver
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[0]" is stuck at GND
     Warning (13410): Pin "HEX1[1]" is stuck at GND
@@ -742,6 +771,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "AUD_DACDAT" is stuck at GND
     Warning (13410): Pin "AUD_XCK" is stuck at GND
     Warning (13410): Pin "TD_RESET" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 32 input pin(s) that do not drive logic
@@ -777,15 +807,15 @@ Warning (21074): Design contains 32 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TD_DATA[7]"
     Warning (15610): No output dependent on input pin "TD_HS"
     Warning (15610): No output dependent on input pin "TD_VS"
-Info (21057): Implemented 465 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 459 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 47 input pins
     Info (21059): Implemented 217 output pins
     Info (21060): Implemented 159 bidirectional pins
-    Info (21061): Implemented 42 logic cells
+    Info (21061): Implemented 36 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 472 warnings
-    Info: Peak virtual memory: 506 megabytes
-    Info: Processing ended: Sun Mar 05 10:45:08 2017
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Peak virtual memory: 724 megabytes
+    Info: Processing ended: Wed Mar 08 13:57:20 2017
+    Info: Elapsed time: 00:00:42
+    Info: Total CPU time (on all processors): 00:01:14
 
 
